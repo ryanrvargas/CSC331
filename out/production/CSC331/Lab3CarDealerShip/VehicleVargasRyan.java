@@ -35,6 +35,8 @@ public class VehicleVargasRyan {
         String vin = ""; // Using a standard String instead of StringBuilder
         char character;
         Random rand = new Random();
+        
+
 
         for (int i = 0; i < 17; i++) {
             if (i < 1) { // First character random number
@@ -45,7 +47,15 @@ public class VehicleVargasRyan {
                     character = (char) ('A' + ThreadLocalRandom.current().nextInt(26)); // A-Z
                 } while (character == 'I' || character == 'O'); // Skip 'I' and 'O'
                 vin += character;
-            } else if (i < 8){
+            } else if (i < 7){
+                int randomNum = ThreadLocalRandom.current().nextInt(0, 10);
+                vin += randomNum; // Concatenating using +=
+            } else if (i < 11){ // Remaining characters can be numbers or letters (excluding 'I' and 'O')
+                do {
+                    character = (char) ('A' + ThreadLocalRandom.current().nextInt(26)); // A-Z
+                } while (character == 'I' || character == 'O'); // Skip 'I' and 'O'
+                vin += character;
+            } else{
                 int randomNum = ThreadLocalRandom.current().nextInt(0, 10);
                 vin += randomNum; // Concatenating using +=
             }
