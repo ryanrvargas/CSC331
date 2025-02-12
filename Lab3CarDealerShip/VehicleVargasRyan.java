@@ -28,6 +28,10 @@ public class VehicleVargasRyan {
         this.vin = generateVIN();
     }
 
+    public VehicleVargasRyan() {
+        this.vin = generateVIN();
+    }
+
     private String generateVIN() {
         /*
          * Generates a 17-character VIN with random numbers and letters while avoiding 'I' and 'O'.
