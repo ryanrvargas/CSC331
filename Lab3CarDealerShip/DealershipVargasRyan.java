@@ -31,19 +31,26 @@ public class DealershipVargasRyan {
                 new VehicleVargasRyan("Toyota", "Rav4", 2020, "Gas", "Automatic", 31000, 23000),
                 new VehicleVargasRyan("GMC", "Sierra", 2019, "Diesel", "Automatic", 48000, 36000)};
 
-        System.out.printf("Enter vehicle Vargas: %s", BMW.getVin());
+        System.out.printf("Enter vehicle Vargas: %s%n", BMW.getVin());
 
         displayMenu();
     }
 
     public static void displayMenu(){
-        System.out.println("Car Dealership Inventory System:%n" +
+        System.out.printf("Car Dealership Inventory System:%n" +
                 "1. Add a vehicle%n" +
                 "2. View Inventory%n" +
                 "3. Search Inventory%n" +
                 "4. Calculate Vehicle From Inventory%n" +
                 "5. Remove Vehicle From Inventory%n" +
                 "6. Exit%n");
+    }
+
+    public static void viewInventory(VehicleVargasRyan[] cars){
+        for (VehicleVargasRyan car : cars) {
+            System.out.printf("Make: %s, Model: %s, Year: %d, VIN: %s%n",
+                    car.getMake(), car.getModel(), car.getYear(), car.getVin());
+        }
     }
 
 }
