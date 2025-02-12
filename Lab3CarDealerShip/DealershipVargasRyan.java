@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 
 public class DealershipVargasRyan {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -29,12 +30,13 @@ public class DealershipVargasRyan {
                 new VehicleVargasRyan("Honda", "Accord", 2021, "Gas", "Automatic", 27000, 19000),
                 new VehicleVargasRyan("Toyota", "Rav4", 2020, "Gas", "Automatic", 31000, 23000),
                 new VehicleVargasRyan("GMC", "Sierra", 2019, "Diesel", "Automatic", 48000, 36000)};
-                System.out.printf("Enter vehicle Vargas: %s", BMW.getVin());
 
+        System.out.printf("Enter vehicle Vargas: %s", BMW.getVin());
 
-
+        displayMenu();
     }
-    public void displayMenu(){
+
+    public static void displayMenu(){
         System.out.println("Car Dealership Inventory System:%n" +
                 "1. Add a vehicle%n" +
                 "2. View Inventory%n" +
@@ -43,4 +45,5 @@ public class DealershipVargasRyan {
                 "5. Remove Vehicle From Inventory%n" +
                 "6. Exit%n");
     }
+
 }
