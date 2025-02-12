@@ -8,6 +8,6 @@ public class DealershipVargasRyan {
 
         VehicleVargasRyan BMW = new VehicleVargasRyan();
 
-        System.out.printf("Enter vehicle Vargas: %s", BMW.getVin());
+        System.out.printf("BMW VIN: %s", BMW.getVin());
     }
 }

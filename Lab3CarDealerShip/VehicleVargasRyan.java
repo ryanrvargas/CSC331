@@ -49,7 +49,15 @@ public class VehicleVargasRyan {
                     character = (char) ('A' + ThreadLocalRandom.current().nextInt(26)); // A-Z
                 } while (character == 'I' || character == 'O'); // Skip 'I' and 'O'
                 vin += character;
-            } else if (i < 8){
+            } else if (i < 7){
+                int randomNum = ThreadLocalRandom.current().nextInt(0, 10);
+                vin += randomNum; // Concatenating using +=
+            } else if (i < 11) {
+                do {
+                    character = (char) ('A' + ThreadLocalRandom.current().nextInt(26)); // A-Z
+                } while (character == 'I' || character == 'O'); // Skip 'I' and 'O'
+                vin += character;
+            }else {
                 int randomNum = ThreadLocalRandom.current().nextInt(0, 10);
                 vin += randomNum; // Concatenating using +=
             }
