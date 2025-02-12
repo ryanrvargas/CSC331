@@ -58,8 +58,27 @@ public class VehicleVargasRyan {
     }
 
 
-public String getVin() {
+    public String getVin() {
     return vin;
 }
+
+    public String getMake(){ return make;}
+
+    public String getModel(){ return model;}
+
+    public int getYear(){ return year;}
+
+    public String getEngineType(){ return engineType;}
+
+    public String getTransmission(){ return transmission;}
+
+    public double getCost(){ return cost;}
+
+    public double getMilage(){ return milage;}
+
+    public void setCose(double cost){ this.cost = cost;}
+
+    public void setMilage(double milage){ this.milage = milage;}
+
 }
 
