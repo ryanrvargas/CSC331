@@ -14,6 +14,11 @@ public class VehicleVargasRyan {
     private double cost;
     private double milage;
 
+    public VehicleVargasRyan(){
+
+    }
+
+
     public VehicleVargasRyan(String make, String model, int year, String engineType, String transmission, double cost, double milage) {
         // Correctly assigning parameters to instance variables
         this.make = make;
@@ -35,7 +40,7 @@ public class VehicleVargasRyan {
         String vin = ""; // Using a standard String instead of StringBuilder
         char character;
         Random rand = new Random();
-        
+
 
 
         for (int i = 0; i < 17; i++) {
