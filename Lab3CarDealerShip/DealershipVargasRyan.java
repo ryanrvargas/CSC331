@@ -36,6 +36,7 @@ public class DealershipVargasRyan {
         VehicleVargasRyan car = new VehicleVargasRyan();
         dealership.addVehicle(car);
         viewInventory(dealership.cars);
+        System.out.println("TEST");
 
     }
 
