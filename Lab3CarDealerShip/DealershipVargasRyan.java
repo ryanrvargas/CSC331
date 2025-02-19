@@ -1,4 +1,4 @@
-package Lab3CarDealerShip;
+package CSC331.Lab3CarDealerShip;
 
 import java.util.Scanner;
 
