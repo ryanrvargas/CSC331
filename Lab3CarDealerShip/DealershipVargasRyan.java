@@ -53,4 +53,26 @@ public class DealershipVargasRyan {
         }
     }
 
+    public void addVehicle(VehicleVargasRyan cars){
+        VehicleVargasRyan[] temp = new VehicleVargasRyan[1];
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.println("Enter vehicle make: ");
+        String make = scanner.nextLine();
+        System.out.printf("Enter vehicle model: ");
+        String model = scanner.nextLine();
+        System.out.printf("Enter vehicle year: ");
+        int year = scanner.nextInt();
+        System.out.printf("Enter vehicle engine type: ");
+        String engineType = scanner.nextLine();
+        System.out.printf("Enter vehicle transmission type: ");
+        String transmissionType = scanner.nextLine();
+        System.out.printf("Enter vehicle cost: ");
+        int cost = scanner.nextInt();
+        System.out.printf("Enter vehicle mileage: ");
+        int mileage = scanner.nextInt();
+
+    }
+
 }
