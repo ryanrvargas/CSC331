@@ -1,4 +1,4 @@
-package CSC331.Lab3CarDealerShip;
+package Lab3CarDealerShip;
 
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
