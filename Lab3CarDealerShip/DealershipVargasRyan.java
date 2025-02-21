@@ -53,13 +53,18 @@ public class DealershipVargasRyan {
                 "6. Exit%n");
     }
 
-    public static void viewInventory(VehicleVargasRyan[] cars){
+    public static void viewInventory(VehicleVargasRyan[] cars) {
+        System.out.println("------------------------------------------------------------------------------------");
+        System.out.printf("%-20s %-10s %-10s %-6s %-10s %-12s %-10s %-10s%n",
+                "VIN", "Make", "Model", "Year", "Engine Type", "Transmission", "Cost ($)", "Mileage (miles)");
+        System.out.println("------------------------------------------------------------------------------------");
+
+        // Print each vehicle in formatted columns
         for (VehicleVargasRyan car : cars) {
-            System.out.printf("Make: %s, Model: %s, Year: %d, VIN: %s%n",
-                    car.getMake(), car.getModel(), car.getYear(), car.getVin());
-            if (cars.length == 0) {
-                System.out.println("Inventory is empty.");
-            }
+            System.out.printf("%-20s %-10s %-10s %-6d %-10s %-12s $%-10.2f %-10.1f%n",
+                    car.getVin(), car.getMake(), car.getModel(), car.getYear(),
+                    car.getEngineType(), car.getTransmission(), car.getCost(), car.getMilage());
+
         }
     }
 
@@ -93,27 +98,44 @@ public class DealershipVargasRyan {
 
     }
 
-    public void removeVehicle(){
-        VehicleVargasRyan[] temp = new VehicleVargasRyan[cars.length - 1];
-        int index = -1;
+    public void removeVehicle() {
         System.out.println("Enter VIN of vehicle to remove: ");
         String user = scanner.nextLine();
-        //Find the index of Vic we want to remove
-        for(int i = 0; i < cars.length; i++){
-            if(cars[i].getVin().equals(user)){
+
+        int index = -1;
+
+        //Find the index of the vehicle to remove
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].getVin().equals(user)) {
                 index = i;
+                break;
             }
         }
-        for(int i = 0, j = 0; i < cars.length; i++,j++){
-            if (i == index){continue;}//Using continue allows us to skip the index of the car we want to remove
-            //and add all the others to cars
-            temp[j] = cars[i];//j++ increment added each element
+
+        //If VIN was not found print a message and exit the method
+        if (index == -1) {
+            System.out.println("Vehicle with VIN " + user + " not found.");
+            return;
         }
 
+        //Create a new array with one less size
+        VehicleVargasRyan[] temp = new VehicleVargasRyan[cars.length - 1];
+
+        //Copy all elements except the one to remove
+        for (int i = 0, j = 0; i < cars.length; i++) {
+            if (i == index) continue; // Skip the vehicle to remove
+            temp[j++] = cars[i]; // Increment j only when adding an element
+        }
+
+        //Assign the new array to cars
         cars = temp;
 
         System.out.println("Vehicle removed from inventory.");
-
     }
+
+    public void searchInventory(VehicleVargasRyan[] cars) {
+        System.out.printf("1.Search vehicle by make%n2.Search by model%n3.Search by year%n4.Search by vin%n");
+    }
+
 
 }
