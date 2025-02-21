@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 
 public class DealershipVargasRyan {
+    public Scanner scanner = new Scanner(System.in);
     public VehicleVargasRyan[] cars = {
             new VehicleVargasRyan("BMW", "M3", 2023, "Gas", "Automatic", 75000, 0),
             new VehicleVargasRyan("Toyota", "Camry", 2022, "Gas", "Automatic", 28000, 15000),
@@ -27,16 +28,18 @@ public class DealershipVargasRyan {
             new VehicleVargasRyan("GMC", "Sierra", 2019, "Diesel", "Automatic", 48000, 36000)};
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+
 
         displayMenu();
         DealershipVargasRyan dealership = new DealershipVargasRyan();
         viewInventory(dealership.cars);
         displayMenu();
         VehicleVargasRyan car = new VehicleVargasRyan();
-        dealership.addVehicle(car);
+        //dealership.addVehicle(car);
         viewInventory(dealership.cars);
         System.out.println("TEST");
+        dealership.removeVehicle();
+        viewInventory(dealership.cars);
 
     }
 
@@ -54,12 +57,14 @@ public class DealershipVargasRyan {
         for (VehicleVargasRyan car : cars) {
             System.out.printf("Make: %s, Model: %s, Year: %d, VIN: %s%n",
                     car.getMake(), car.getModel(), car.getYear(), car.getVin());
+            if (cars.length == 0) {
+                System.out.println("Inventory is empty.");
+            }
         }
     }
 
     public void addVehicle(VehicleVargasRyan car){
         VehicleVargasRyan[] temp = new VehicleVargasRyan[cars.length + 1];
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter vehicle make: ");
         String make = scanner.nextLine();
@@ -84,6 +89,30 @@ public class DealershipVargasRyan {
         temp[cars.length] = car;
         cars = temp;
 
+        System.out.println("Vehicle added to inventory.");
+
+    }
+
+    public void removeVehicle(){
+        VehicleVargasRyan[] temp = new VehicleVargasRyan[cars.length - 1];
+        int index = -1;
+        System.out.println("Enter VIN of vehicle to remove: ");
+        String user = scanner.nextLine();
+        //Find the index of Vic we want to remove
+        for(int i = 0; i < cars.length; i++){
+            if(cars[i].getVin().equals(user)){
+                index = i;
+            }
+        }
+        for(int i = 0, j = 0; i < cars.length; i++,j++){
+            if (i == index){continue;}//Using continue allows us to skip the index of the car we want to remove
+            //and add all the others to cars
+            temp[j] = cars[i];//j++ increment added each element
+        }
+
+        cars = temp;
+
+        System.out.println("Vehicle removed from inventory.");
 
     }
 
