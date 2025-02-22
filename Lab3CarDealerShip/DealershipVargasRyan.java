@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 public class DealershipVargasRyan {
-    public Scanner scanner = new Scanner(System.in);
+    public static Scanner scanner = new Scanner(System.in);
     public VehicleVargasRyan[] cars = {
             new VehicleVargasRyan("BMW", "M3", 2023, "Gas", "Automatic", 75000, 0),
             new VehicleVargasRyan("Toyota", "Camry", 2022, "Gas", "Automatic", 28000, 15000),
@@ -36,10 +36,35 @@ public class DealershipVargasRyan {
         displayMenu();
         VehicleVargasRyan car = new VehicleVargasRyan();
         //dealership.addVehicle(car);
-        viewInventory(dealership.cars);
+        //viewInventory(dealership.cars);
         System.out.println("TEST");
-        dealership.removeVehicle();
+        //dealership.removeVehicle();
         viewInventory(dealership.cars);
+        dealership.searchInventory(dealership.cars);
+        int user;
+        do {
+            displayMenu();
+            user = scanner.nextInt();
+            scanner.nextLine();//Consume newline
+            switch (user) {
+                case 1:
+                    dealership.addVehicle(car);
+                    break;
+                case 2:
+                    viewInventory(dealership.cars);
+                    break;
+                case 3:
+                    dealership.searchInventory(dealership.cars);
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    dealership.removeVehicle();
+
+            }
+        }while(user != 5);
+
+
 
     }
 
@@ -134,7 +159,69 @@ public class DealershipVargasRyan {
     }
 
     public void searchInventory(VehicleVargasRyan[] cars) {
-        System.out.printf("1.Search vehicle by make%n2.Search by model%n3.Search by year%n4.Search by vin%n");
+
+        int input;
+        do {
+            System.out.printf("1.Search vehicle by make%n2.Search by model%n3.Search by year%n4.Search by vin%n5.Exit%n");
+            input = scanner.nextInt();
+            scanner.nextLine();
+            boolean found = false;
+            switch (input) {
+                case 1:
+                    System.out.println("Enter vehicle make: ");
+                    String make = scanner.nextLine();
+                    for (VehicleVargasRyan car : cars) {
+                        if (car.getMake().toLowerCase().equals(make.toLowerCase())) {
+                            System.out.printf("Make: %s, Model: %s, Year: %d, Vin: %s%n", car.getMake(), car.getModel(), car.getYear(), car.getVin());
+                            found = true;
+                        }
+                    }
+                    if (!found) {
+                        System.out.println("Not found.");
+                    }
+                    break;
+                    case 2:
+                        System.out.println("Enter vehicle model: ");
+                        String model = scanner.nextLine();
+                        for (VehicleVargasRyan car : cars) {
+                            if (car.getModel().toLowerCase().equals(model.toLowerCase())) {
+                                System.out.printf("Make: %s, Model: %s, Year: %d, Vin: %s%n", car.getMake(), car.getModel(), car.getYear(), car.getVin());
+                                found = true;
+                            }
+                        }
+                        if (!found) {
+                            System.out.println("Not found.");
+                        }
+                        break;
+                        case 3:
+                            System.out.println("Enter vehicle year: ");
+                            int year = scanner.nextInt();
+                            for (VehicleVargasRyan car : cars) {
+                                if (car.getYear() == year) {
+                                    System.out.printf("Make: %s, Model: %s, Year: %d, Vin: %s%n", car.getMake(), car.getModel(), car.getYear(), car.getVin());
+                                    found = true;
+                                }
+                            }
+                            if (!found) {
+                                System.out.println("Not found.");
+                            }
+                            break;
+                            case 4:
+                                System.out.println("Enter vehicle vin: ");
+                                String vin = scanner.nextLine();
+                                for (VehicleVargasRyan car : cars) {
+                                    if (car.getVin().toLowerCase().equals(vin.toLowerCase())) {
+                                        System.out.printf("Make: %s, Model: %s, Year: %d, Vin: %s%n", car.getMake(), car.getModel(), car.getYear(), car.getVin());
+                                        found = true;
+                                    }
+                                }
+                                if (!found) {
+                                    System.out.println("Not found.");
+                                }
+                                break;
+
+            }
+        } while (input != 5);
     }
 
 
