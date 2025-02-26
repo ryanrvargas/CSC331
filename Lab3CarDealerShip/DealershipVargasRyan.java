@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class DealershipVargasRyan {
     public static Scanner scanner = new Scanner(System.in);
-    //My Inventory I hope this is alright
+    //Array of vehicles representing the dealership's inventory
     public VehicleVargasRyan[] cars = {
             new VehicleVargasRyan("BMW", "M3", 2023, "Gas", "Automatic", 75000, 0),
             new VehicleVargasRyan("Toyota", "Camry", 2022, "Gas", "Automatic", 28000, 15000),
@@ -27,7 +27,12 @@ public class DealershipVargasRyan {
             new VehicleVargasRyan("Honda", "Accord", 2021, "Gas", "Automatic", 27000, 19000),
             new VehicleVargasRyan("Toyota", "Rav4", 2020, "Gas", "Automatic", 31000, 23000),
             new VehicleVargasRyan("GMC", "Sierra", 2019, "Diesel", "Automatic", 48000, 36000)};
-
+    /**
+     * The main entry point for the car dealership system.
+     * Handles user interactions and menu selection.
+     *
+     * @param args Command-line arguments (unused)
+     */
     public static void main(String[] args) {
 
 
@@ -58,6 +63,7 @@ public class DealershipVargasRyan {
                     dealership.searchInventory(dealership.cars);
                     break;
                 case 4:
+                    dealership.calculateSalesPrice(dealership.cars);
                     break;
                 case 5:
                     dealership.removeVehicle();
@@ -68,7 +74,9 @@ public class DealershipVargasRyan {
 
 
     }
-
+    /**
+     * Displays the main menu for the dealership system.
+     */
     public static void displayMenu(){
         System.out.printf("Car Dealership Inventory System:%n" +
                 "1. Add a vehicle%n" +
@@ -78,7 +86,11 @@ public class DealershipVargasRyan {
                 "5. Remove Vehicle From Inventory%n" +
                 "6. Exit%n");
     }
-
+    /**
+     * Displays the current inventory of vehicles.
+     *
+     * @param cars The array of vehicles to display
+     */
     public static void viewInventory(VehicleVargasRyan[] cars) {
         System.out.println("------------------------------------------------------------------------------------");
         System.out.printf("%-20s %-10s %-10s %-6s %-10s %-12s %-10s %-10s%n",
@@ -93,7 +105,11 @@ public class DealershipVargasRyan {
 
         }
     }
-
+    /**
+     * Adds a new vehicle to the inventory.
+     *
+     * @param car The vehicle to add
+     */
     public void addVehicle(VehicleVargasRyan car){
         VehicleVargasRyan[] temp = new VehicleVargasRyan[cars.length + 1];
 
@@ -123,7 +139,9 @@ public class DealershipVargasRyan {
         System.out.println("Vehicle added to inventory.");
 
     }
-
+    /**
+     * Removes a vehicle from the inventory by VIN.
+     */
     public void removeVehicle() {
         System.out.println("Enter VIN of vehicle to remove: ");
         String user = scanner.nextLine();
@@ -158,7 +176,11 @@ public class DealershipVargasRyan {
 
         System.out.println("Vehicle removed from inventory.");
     }
-
+    /**
+     * Searches for a vehicle in the inventory by make, model, year, or VIN.
+     *
+     * @param cars The array of vehicles to search
+     */
     public void searchInventory(VehicleVargasRyan[] cars) {
 
         int input;
@@ -224,6 +246,11 @@ public class DealershipVargasRyan {
             }
         } while (input != 5);
     }
+    /**
+     * Calculates the sales price, loan details, and monthly payment for a selected vehicle.
+     *
+     * @param cars The array of vehicles to search for sales price calculation
+     */
     public void calculateSalesPrice(VehicleVargasRyan[] cars) {
         System.out.println("Enter vehicle vin: ");
         String vin = scanner.nextLine();
@@ -231,29 +258,54 @@ public class DealershipVargasRyan {
         for (VehicleVargasRyan car : cars) {
             if (car.getVin().equalsIgnoreCase(vin)) {
                 found = true;
-                System.out.printf("Make: %s, Model: %s, Year: %d, Price: %f, Vin: %s%n", car.getMake(), car.getModel(), car.getYear(), car.getCost(), car.getVin());
-            }
 
-            System.out.println("Enter tax rate percentage: ");
-            double rate = scanner.nextDouble();
-            rate /= 100;
-            System.out.println("Enter downpayment: ");
-            double downpayment = scanner.nextDouble();
-            System.out.println("Enter APR: ");
-            double apr = scanner.nextDouble();
-            apr /= 100.0;
-            System.out.println("Enter loan term in months: ");
-            int months = scanner.nextInt();
+                // Display vehicle details
+                System.out.println("\nVehicle Selected:");
+                System.out.println("\nVehicles Found:");
+                System.out.println("--------------------------------------------------------------------------------------");
+                System.out.printf("%-20s %-10s %-10s %-5s %-12s %-12s %-10s %-10s%n",
+                        "VIN", "Make", "Model", "Year", "Engine Type", "Transmission", "Cost ($)", "Mileage (miles)");
+                System.out.println("--------------------------------------------------------------------------------------");
+                System.out.printf("%-20s %-10s %-10s %-5d %-12s %-12s $%-10.2f %-10.1f%n",
+                        car.getVin(), car.getMake(), car.getModel(), car.getYear(),
+                        car.getEngineType(), car.getTransmission(), car.getCost(), car.getMilage());
 
-            double totalPrice = (car.getCost() * rate) + car.getCost();
-            double loanAmount = totalPrice - downpayment;
-            double monthlyPayment = (totalPrice  / 12);
+                // Get user inputs
+                System.out.print("\nEnter Tax Rate (as %): ");
+                double rate = scanner.nextDouble();
+                rate /= 100.0; // Convert to decimal
 
+                System.out.print("Enter Down Payment ($): ");
+                double downpayment = scanner.nextDouble();
 
-            if(!found){
-                System.out.println("No matching vehicles found.");
+                System.out.print("Enter APR (as %): ");
+                double apr = scanner.nextDouble();
+                apr /= 100.0; // Convert to decimal
+
+                System.out.print("Enter Loan Term (months): ");
+                int months = scanner.nextInt();
+
+                // Calculate financing details
+                double totalPrice = car.getCost() * (1 + rate); // Tax added to base price
+                double loanAmount = totalPrice - downpayment;
+                double monthlyRate = apr / 12.0;
+                double monthlyPayment = (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
+
+                // Display financing details
+                System.out.println("\n---------------------------------------------------");
+                System.out.println("                 *  FINANCING DETAILS  *          ");
+                System.out.println("---------------------------------------------------");
+                System.out.printf("Base Price ($):         %10.2f%n", car.getCost());
+                System.out.printf("Tax Rate:               %10.2f%%%n", rate * 100);
+                System.out.printf("Total Price ($):        %10.2f%n", totalPrice);
+                System.out.printf("Down Payment ($):       %10.2f%n", downpayment);
+                System.out.printf("Loan Amount ($):        %10.2f%n", loanAmount);
+                System.out.printf("APR:                    %10.2f%%%n", apr * 100);
+                System.out.printf("Loan Term (Months):     %10d%n", months);
+                System.out.printf("Monthly Payment ($):    %10.2f%n", monthlyPayment);
+                System.out.println("---------------------------------------------------");
+
             }
         }
     }
-
 }
