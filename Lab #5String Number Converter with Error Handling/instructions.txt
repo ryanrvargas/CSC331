@@ -1,0 +1,53 @@
+Lab Assignment: String Number Converter with Error Handling
+
+Overview
+
+In this lab, you will write a Java program (NumberConversionLastNameFirstName) that can convert numbers 0-29:
+
+A number written in words (e.g., "twenty-three") into its numeric value (23)
+A numeric value (e.g., 23) into its word form ("twenty-three")
+You will use if/else logic and string manipulation; NOT maps or switch statements. Your program should validate input and give clear error messages if the input is invalid.
+
+
+
+Instructions
+
+Part 1: Program Menu
+
+In your main method:
+
+Display a menu with two options:
+
+1) Convert word to number
+2) Convert number to word
+3) Exit
+Prompt the user to enter 1, 2, or 3.
+
+If they enter something else, display an error and ask again.
+
+Part 2: Error Handling
+
+Before calling any conversion methods:
+
+Validate all user input in the main method using try/catch and if statements.
+If input is invalid (like "twenty ten" (contains spaces) or input is less than length 3 for string input or for int input if number out of range or not correct data type), display an error message and let the user try again.
+Note: a user may enter “twenty-three” or “twentythree”
+Part 3: Required Methods
+
+convertWordToNumber(String word)
+Takes a string like "twenty-nine" and returns the int value (29)
+Uses nested if-else blocks for logic
+Throw an IllegalArgumentException if the word is not valid (e.g. “twentyten” or value greater than 29)
+
+
+convertNumberToWord(int number)
+Takes an int (0 to 29) and returns the string (e.g., "twenty-three")
+Use integer division and modulus to build the word without using arrays or switch
+What NOT to Use
+
+You may NOT use any of the following:
+
+Arrays
+HashMaps or any collection classes
+switch statements
+External libraries
