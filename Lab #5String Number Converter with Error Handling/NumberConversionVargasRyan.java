@@ -71,15 +71,15 @@ public class NumberConversionVargasRyan {
         else if (s.equals("eighteen")) return 18;
         else if (s.equals("nineteen")) return 19;
         else if (s.equals("twenty")) return 20;
-        else if (s.equals("twentyone") || s.equals("twent-one")) return 21;
-        else if (s.equals("twentytwo") || s.equals("twent-two")) return 22;
-        else if (s.equals("twentythree") || s.equals("twent-three")) return 23;
-        else if (s.equals("twentyfour") || s.equals("twent-four")) return 24;
-        else if (s.equals("twentyfive") || s.equals("twent-five")) return 25;
-        else if (s.equals("twentysix") || s.equals("twent-six")) return 26;
-        else if (s.equals("twentyseven") || s.equals("twent-seven")) return 27;
-        else if (s.equals("twentyeight") || s.equals("twent-eight")) return 28;
-        else if (s.equals("twentynine") || s.equals("twent-nine")) return 29;
+        else if (s.equals("twentyone") || s.equals("twenty-one")) return 21;
+        else if (s.equals("twentytwo") || s.equals("twenty-two")) return 22;
+        else if (s.equals("twentythree") || s.equals("twenty-three")) return 23;
+        else if (s.equals("twentyfour") || s.equals("twenty-four")) return 24;
+        else if (s.equals("twentyfive") || s.equals("twenty-five")) return 25;
+        else if (s.equals("twentysix") || s.equals("twenty-six")) return 26;
+        else if (s.equals("twentyseven") || s.equals("twenty-seven")) return 27;
+        else if (s.equals("twentyeight") || s.equals("twenty-eight")) return 28;
+        else if (s.equals("twentynine") || s.equals("twenty-nine")) return 29;
         else{
             throw new IllegalArgumentException("Number out of range.");
         }
