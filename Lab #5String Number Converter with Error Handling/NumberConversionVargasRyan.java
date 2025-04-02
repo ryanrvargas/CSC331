@@ -1,12 +1,29 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * NumberConversionVargasRyan
+ * A utility program that converts numbers between word form and integer values (0–29).
+ * It includes a menu-driven interface and input validation using if-else logic.
+ * No arrays, maps, or switch statements are used as per lab requirements.
+ *
+ * Author: Ryan Vargas
+ * Date: 04/02/2025
+ * Section: 331-002
+ */
 public class NumberConversionVargasRyan {
+
+    /**
+     * Converts a number (0–29) to its corresponding word form.
+     *
+     * @param num the number to convert
+     * @return the number in word form (e.g., "twenty-three")
+     * @throws IllegalArgumentException if the number is outside the range 0–29
+     */
     public static String convertNumberToString(int num) {
-        String numStr = String.valueOf(num);
         String result = "";
 
-        if (num < 0 && num > 29) {
+        if (num < 0 || num > 29) {
             throw new IllegalArgumentException("Number out of range.");
         }
 
@@ -44,9 +61,18 @@ public class NumberConversionVargasRyan {
             else if (remainder == 8) result += "-eight";
             else if (remainder == 9) result += "-nine";
         }
+
         return result;
     }
 
+    /**
+     * Converts a word-form number (e.g., "twenty-three") into its integer value (e.g., 23).
+     * Handles both hyphenated and concatenated formats (e.g., "twentythree").
+     *
+     * @param s the word-form number to convert
+     * @return the integer value of the number
+     * @throws IllegalArgumentException if the word is invalid or out of range
+     */
     public static int convertWordToNumber(String s) {
         s = s.strip().toLowerCase();
 
@@ -80,23 +106,30 @@ public class NumberConversionVargasRyan {
         else if (s.equals("twentyseven") || s.equals("twenty-seven")) return 27;
         else if (s.equals("twentyeight") || s.equals("twenty-eight")) return 28;
         else if (s.equals("twentynine") || s.equals("twenty-nine")) return 29;
-        else{
+        else {
             throw new IllegalArgumentException("Number out of range.");
         }
     }
 
+    /**
+     * Displays a menu to the user for converting numbers and handles input and validation.
+     * Includes options to convert word-to-number, number-to-word, or exit the program.
+     * Handles invalid menu and input values using try/catch.
+     */
     public static void displayMenu() {
         System.out.println("Number Conversion Vargas\n" +
                 "1) Convert word to number\n" +
                 "2) Convert number to word\n" +
                 "3) Exit");
+
         Scanner scanner = new Scanner(System.in);
+
         while (true) {
             try {
-
                 System.out.print("Select an option: ");
                 int option = scanner.nextInt();
-                scanner.nextLine();
+                scanner.nextLine(); // Clear newline
+
                 if (option == 1) {
                     System.out.print("Enter word: ");
                     System.out.println(convertWordToNumber(scanner.nextLine()));
@@ -111,12 +144,17 @@ public class NumberConversionVargasRyan {
                 }
             } catch (IllegalArgumentException | InputMismatchException e) {
                 System.out.println("Error: " + e.getMessage());
-                scanner.nextLine();
+                scanner.nextLine(); // Clear invalid input
             }
         }
-
     }
 
+    /**
+     * Main method – entry point of the program.
+     * Launches the number conversion menu.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
         displayMenu();
     }
