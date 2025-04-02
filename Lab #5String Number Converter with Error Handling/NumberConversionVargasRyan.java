@@ -70,9 +70,19 @@ public class NumberConversionVargasRyan {
         else if (s.equals("seventeen")) return 17;
         else if (s.equals("eighteen")) return 18;
         else if (s.equals("nineteen")) return 19;
-
-
-        return 0;
+        else if (s.equals("twenty")) return 20;
+        else if (s.equals("twentyone") || s.equals("twent-one")) return 21;
+        else if (s.equals("twentytwo") || s.equals("twent-two")) return 22;
+        else if (s.equals("twentythree") || s.equals("twent-three")) return 23;
+        else if (s.equals("twentyfour") || s.equals("twent-four")) return 24;
+        else if (s.equals("twentyfive") || s.equals("twent-five")) return 25;
+        else if (s.equals("twentysix") || s.equals("twent-six")) return 26;
+        else if (s.equals("twentyseven") || s.equals("twent-seven")) return 27;
+        else if (s.equals("twentyeight") || s.equals("twent-eight")) return 28;
+        else if (s.equals("twentynine") || s.equals("twent-nine")) return 29;
+        else{
+            throw new IllegalArgumentException("Number out of range.");
+        }
     }
 
     public static void displayMenu() {
