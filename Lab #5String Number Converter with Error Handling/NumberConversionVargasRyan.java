@@ -48,6 +48,30 @@ public class NumberConversionVargasRyan {
     }
 
     public static int convertWordToNumber(String s) {
+        s = s.strip().toLowerCase();
+
+        if (s.equals("zero")) return 0;
+        else if (s.equals("one")) return 1;
+        else if (s.equals("two")) return 2;
+        else if (s.equals("three")) return 3;
+        else if (s.equals("four")) return 4;
+        else if (s.equals("five")) return 5;
+        else if (s.equals("six")) return 6;
+        else if (s.equals("seven")) return 7;
+        else if (s.equals("eight")) return 8;
+        else if (s.equals("nine")) return 9;
+        else if (s.equals("ten")) return 10;
+        else if (s.equals("eleven")) return 11;
+        else if (s.equals("twelve")) return 12;
+        else if (s.equals("thirteen")) return 13;
+        else if (s.equals("fourteen")) return 14;
+        else if (s.equals("fifteen")) return 15;
+        else if (s.equals("sixteen")) return 16;
+        else if (s.equals("seventeen")) return 17;
+        else if (s.equals("eighteen")) return 18;
+        else if (s.equals("nineteen")) return 19;
+
+
         return 0;
     }
 
