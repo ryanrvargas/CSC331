@@ -1,0 +1,87 @@
+Classes/Objects
+public class Animal{
+    String name;
+
+    public void speak(){
+        System.out.println("Animal Sounds");
+    }
+}
+#Making a object/Instance
+Animal doggie = new Animal();
+doggie.name = "MFDoom";
+dogge.speak();
+#Setters/Gettings
+public void setName(String n){
+    this.name = n
+}
+public String getName(){
+    return this.name;
+}
+doggie.setName("Big3");
+#Constructor
+public class Animal{
+    private String name;
+    #Constructor
+    public Animal(String n){
+        this.name = name;
+    }
+Animal cat = new Animal{"Yippie");
+#Inheritance w/ Constructor w/ overrides
+public class Dog extends Animal{
+    public Dog(String n){
+        super(n);
+    }
+    @override
+    public void speak(){
+        System.out.print("I'm a dog");
+    }
+    public void bark(){
+        System.out.println("BARK!");
+    }
+}
+#Polymorphism
+Animal snail = new Dog("Speed");
+snail.speak();
+
+#abstract classes
+public abstract class Animal{
+    private String name;
+
+    public Animal(String n){
+        this.name = n;
+    }
+
+    public abstract void speak();
+
+    public String getName(){
+        return name;
+    }
+#interface
+interface Flyable {
+    void fly();
+}
+
+class Bird implements Flyable {
+    public void fly() {
+        System.out.println("Bird is flying");
+    }
+}
+#try catch finally
+try {
+    int x = 5 / 0;
+} catch (Exception e) {
+    System.out.println("Something went wrong!");
+} finally {
+    System.out.println("This always runs.");
+}
+#JavaFX
+Label label = new Label("Hi!");
+Scene scene = new Scene(new StackPane(label), 200, 100);
+stage.setScene(scene);
+stage.show();
+#Scences
+App Window Structure (Simple)
+Stage = Window
+Scene = What’s inside the window
+Pane = How stuff is laid out (grid, vertical, etc.)
+Nodes = Buttons, text fields, etc.
