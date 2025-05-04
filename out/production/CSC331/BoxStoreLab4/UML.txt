@@ -1,0 +1,71 @@
++---------------------------------------------------------------------------------+
+|                               StoreItem                                         |
++---------------------------------------------------------------------------------+
+| - name: String                                                                  |
+| - price: double                                                                 |
+| - quantity: int                                                                 |
+| - brand: String                                                                 |
++---------------------------------------------------------------------------------+
+| + StoreItem(String, double, int, String)                                        |
+| + StoreItem()                                                                   |
+| + getName(): String                                                             |
+| + getPrice(): double                                                            |
+| + getQuantity(): int                                                            |
+| + getBrand(): String                                                            |
+| + setName(String)                                                               |
+| + setPrice(double)                                                              |
+| + setQuantity(int)                                                              |
+| + setBrand(String)                                                              |
+| + toString(): String                                                            |
++---------------------------------------------------------------------------------+
+
+                                      |
+    --------------------------------------------------------------------------------------------------------------
+    |                                   |                                    |                                   |
++----------------------------+  +----------------------------+  +----------------------------+  +----------------------------+
+|      CleaningSupply        |  |      ClothingItem          |  |     ElectronicsItem       |  |         Furniture         |
++----------------------------+  +----------------------------+  +----------------------------+  +----------------------------+
+| - spray: boolean           |  | - material: String         |  | - touchScreen: boolean    |  | - furnitureType: String   |
+| - cleaningType: String     |  | - size: String            |  | - screenType: String     |  | - style: String          |
+| - scent: String            |  | - season: String          |  | - bluetooth: boolean     |  | - color: String          |
+| - volume: double           |  | - topOrBottom: String      |  |                            |  | - assembled: boolean      |
+| - flammable: boolean       |  +----------------------------+  +----------------------------+  +----------------------------+
++----------------------------+  | + ClothingItem(String, ...) |  | + ElectronicsItem(String,...) |  | + Furniture(String, ...) |
+| + CleaningSupply(String,...) |  | + ClothingItem()          |  | + ElectronicsItem()        |  | + Furniture()             |
+| + CleaningSupply()          |  | + getMaterial(): String   |  | + getTouchScreen(): boolean |  | + getFurnitureType(): String |
+| + isSpray(): String        |  | + getSize(): String        |  | + getScreenType(): String  |  | + getStyle(): String       |
+| + getCleaningType(): String|  | + getSeason(): String      |  | + getBluetooth(): boolean |  | + getColor(): String       |
+| + getScent(): String       |  | + getTopOrBottom(): String |  | + setTouchScreen(boolean) |  | + isAssembled(): boolean   |
+| + getVolume(): double      |  | + setMaterial(String)      |  | + setScreenType(String)   |  | + setFurnitureType(String) |
+| + isFlammable(): boolean   |  | + setSize(String)          |  | + setBluetooth(boolean)  |  | + setStyle(String)         |
+| + setSpray(boolean)        |  | + setSeason(String)        |  | + toString(): String      |  | + setColor(String)         |
+| + setCleaningType(String)  |  | + setTopOrBottom(String)   |  |                            |  | + setAssembled(boolean)    |
+| + setScent(String)         |  | + toString(): String       |  |                            |  | + toString(): String       |
+| + setVolume(double)        |  +----------------------------+  +----------------------------+  +----------------------------+
+| + setFlammable(boolean)    |						      |
+| + toString(): String       |  					      |
++----------------------------+          --------------------------------------
+				       |
+                                       |
+                 -----------------------------------------
+                 |                                      |
++-----------------------------------+  +---------------------------------+
+|             Laptop               |  |             Phone               |
++-----------------------------------+  +---------------------------------+
+| - operatingSystem: String        |  | - color: String                 |
+| - ramSize: int                   |  | - carrier: String               |
+| - batteryCapacity: int           |  | - model: String                 |
+| - processor: String              |  | - storage: int                  |
++-----------------------------------+  +---------------------------------+
+| + Laptop(String, ...)             |  | + Phone(String, ...)           |
+| + Laptop()                        |  | + Phone()                      |
+| + getOperatingSystem(): String    |  | + getColor(): String           |
+| + getRamSize(): int               |  | + getCarrier(): String         |
+| + getBatteryCapacity(): int       |  | + getModel(): String           |
+| + getProcessor(): String          |  | + getStorage(): int            |
+| + setOperatingSystem(String)      |  | + setColor(String)             |
+| + setRamSize(int)                 |  | + setCarrier(String)           |
+| + setBatteryCapacity(int)         |  | + setModel(String)             |
+| + setProcessor(String)            |  | + setStorage(int)              |
+| + toString(): String              |  | + toString(): String           |
++-----------------------------------+  +---------------------------------+
