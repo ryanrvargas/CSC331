@@ -10,23 +10,21 @@ public class ToolVargasRyan implements RentalVargasRyan {
     }
 
     public String getToolInfo(){
-        return "Tool Name: " + this.name + "\nBase Price: $" + this.basePrice;
+        return  String.format("Name: " + this.name + "\nBase Price: $" + this.basePrice);
     }
 
-    public void calculateRentalPrice(int days){
+    public double calculateRentalPrice(int days){
+        return this.basePrice * days;
+
+    }
+
+    public double calculateRentalPrice(int days, boolean weekendIncluded){
         double totalPrice = this.basePrice * days;
-        System.out.println("Total Price: $" + totalPrice);
-    }
-
-    public void calculateRentalPrice(int days, boolean weekendIncluded){
         if (weekendIncluded){
-            double totalPrice = this.basePrice * days;
             double surcharge = totalPrice * .10;
-            System.out.printf("Total Price: $%.2f\n", totalPrice + surcharge);
-        }else{
-            double totalPrice = this.basePrice * days;
-            System.out.printf("Total Price: $%.2f\n", totalPrice);
+            totalPrice += surcharge;
         }
+        return totalPrice;
     }
     public double getBasePrice(){
         return this.basePrice;

@@ -5,10 +5,10 @@ public class Ladder extends ToolVargasRyan{
         super(name, basePrice);
     }
     @Override
-    public void calculateRentalPrice(int days){
+    public double calculateRentalPrice(int days){
         double totalPrice = getBasePrice() * days;
         double discount = totalPrice * .1;
-        totalPrice -= discount;
-        System.out.println("Total Price: $" + totalPrice);
+        return totalPrice - discount;
+
     }
 }

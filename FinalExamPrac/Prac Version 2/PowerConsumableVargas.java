@@ -1,2 +1,3 @@
-public class PowerConsumableVargas {
+public interface PowerConsumableVargas {
+    void calculatePowerUsage();
 }

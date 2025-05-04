@@ -1,7 +1,7 @@
 package FinalExamPrac;
 
 public interface RentalVargasRyan {
-   void calculateRentalPrice(int days);
-   void calculateRentalPrice(int days, boolean weekendIncluded);
+   double calculateRentalPrice(int days);
+   double calculateRentalPrice(int days, boolean weekendIncluded);
 
 }
