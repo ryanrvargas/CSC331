@@ -22,10 +22,10 @@ public class ToolVargasRyan implements RentalVargasRyan {
         if (weekendIncluded){
             double totalPrice = this.basePrice * days;
             double surcharge = totalPrice * .10;
-            System.out.println("Total Price: $" + totalPrice + surcharge);
+            System.out.printf("Total Price: $%.2f\n", totalPrice + surcharge);
         }else{
             double totalPrice = this.basePrice * days;
-            System.out.println("Total Price: $" + totalPrice);
+            System.out.printf("Total Price: $%.2f\n", totalPrice);
         }
     }
     public double getBasePrice(){
