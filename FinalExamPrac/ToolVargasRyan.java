@@ -17,6 +17,10 @@ public class ToolVargasRyan implements RentalVargasRyan {
         double totalPrice = this.basePrice * days;
         System.out.println("Total Price: $" + totalPrice);
     }
+    public void calculateRentalPrice(int days, boolean weekendIncluded){
+        System.out.println("Total Price: $" + this.basePrice);
+    }
+
     public double getBasePrice(){
         return this.basePrice;
     }
